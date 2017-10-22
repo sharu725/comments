@@ -1,23 +1,104 @@
 ---
+title: Welcome to WebJeda
+type: home
+layout: default
+redirect_from: 
+    - /thank-you.html
+    - /test.html
+    - atom.xml
+    - how
+    - jekyll
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="noindex">
-    <meta name="googlebot" content="noindex">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST" action="https://api.staticman.net/v2/entry/sharu725/comments/master">
-  <!-- <input name="options[redirect]" type="hidden" value="https://my-site.com"> -->
-  <!-- e.g. "2016-01-02-this-is-a-post" -->
-  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-  <label><input name="fields[name]" type="text">Name</label>
-  <label><input name="fields[email]" type="email">E-mail</label>
-  <label><input name="fields[email]" type="url">E-mail</label>
-  <label><textarea name="fields[message]"></textarea>Message</label>
-  <button type="submit">Go!</button>
-</form>
-</body>
-</html>
+
+
+{% if page.url == '/' %}
+<div class="homepage">
+<h2 class="text-center">Start Here</h2>
+<div class="mainbox">
+    
+    <a class="post-link-index" href="/jekyll-tutorials/">
+          <div class="card">
+                 <img alt="Jekyll Tutorials" class="post-image-index" src="/thumbs-small/jekyll-tutorial.png" width="300" height="188" />
+                <div class="card-footer">
+                    <h2 class="post-index-title">Jekyll Basics</h2>
+                    <hr>
+                     <p class="post-excerpt">Learn how to host a website and blogs using Github Pages and Jekyll.</p>
+               </div>
+           
+        </div> 
+     </a>
+    
+    
+    
+    
+        
+    <a class="post-link-index" href="/videos/">
+          <div class="card">
+                 <img alt="Jekyll Video Tutorials" class="post-image-index" src="/thumbs-small/jekyll-video-tutorials.png" width="300" height="188" />
+                <div class="card-footer">
+                    <h2 class="post-index-title">Videos</h2>
+                    <hr>
+                     <p class="post-excerpt">Many of our articles are in video format. Watch them here.</p>
+               </div>
+           
+        </div> 
+     </a>
+    
+        
+        
+    <a class="post-link-index" href="/wordpress-to-jekyll-migration/">
+          <div class="card">
+                 <img alt="Wordpress to Jekyll migration" class="post-image-index"  src="/thumbs-small/wordpress-to-jekyll-migration.png" width="300" height="188" />
+                <div class="card-footer">
+                    <h2 class="post-index-title">Wordpress to Jekyll</h2>
+                    <hr>
+                     <p class="post-excerpt">Migrating from Wordpress to Jekyll can be a tedious job. Hire me to do that.</p>
+               </div>
+           
+        </div> 
+     </a>
+    
+    
+    </div>
+</div>  
+    
+{% endif %}
+
+
+<div class="homepage">
+    
+{% if page.url == '/' %}<h2 class="text-center">Latest Articles</h2>{% endif %}
+
+
+<div class="mainbox">
+    
+     {% for post in paginator.posts %} 
+       <a class="post-link-index" href="{{ post.url | prepend: site.baseurl }}">
+          <div itemscope itemtype="http://schema.org/TechArticle" class="card">
+                <div class="image">
+                 <img itemprop="image" alt="{{ post.title }}" class="post-image-index"  src="/thumbs-small/{{ post.image }}" width="300" height="188" />
+                <p class="time"><time itemprop="datePublished" datetime="{{post.date | date: "%Y-%m-%d"}}">{{post.date | date: "%Y %b %d"}}</time></p>
+                </div>
+                <div class="card-footer">
+                    <h2 itemprop="headline" class="post-index-title">{{ post.title }}</h2>
+                    <hr>
+                    
+                     <p itemprop="description" class="post-excerpt">{{ post.desc | truncate: 120 }}</p>
+               </div>
+           
+        </div> 
+     </a>
+      {% endfor %}   
+    </div>
+    
+</div>
+{% include pagination.html %}
+
+{% include form-post.html %}
+
+
+<!-- <p class="news"><svg id="i-alert" viewBox="0 -3 32 32" width="17" height="17" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M16 3 L30 29 2 29 Z M16 11 L16 19 M16 23 L16 25" />
+</svg>&nbsp;Please report any bugs in the new layout.</p>    -->
+   
+   
