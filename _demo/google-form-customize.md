@@ -30,4 +30,4 @@ onsubmit="submitted=true;">
 
 </form>
 
-Style this form however you want to but I'm keeping it simple without any styles applied. You can check the entries [here](https://docs.google.com/spreadsheets/d/1_vt8il8LpxEi8_DmX0yxxRambpw700cdMC2yMIGWqbk/edit?usp=sharing){: target="_blank"}.
+You can check the entries [here](https://docs.google.com/spreadsheets/d/1_vt8il8LpxEi8_DmX0yxxRambpw700cdMC2yMIGWqbk/edit?usp=sharing){: target="_blank"}.
